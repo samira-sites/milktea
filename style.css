@@ -334,6 +334,7 @@ span{
   align-items: center;
   scroll-margin-top: 80px;
 }
+
 .hero-inner {
   display: grid;
   grid-template-columns: 1fr;
@@ -373,7 +374,7 @@ span{
 }
 
 .hero-image{
-  width: 100%;
+  width: 70%;
   max-width: 320px;
   height: auto;
   animation:floatImage 4s ease-in-out infinite;
@@ -855,6 +856,9 @@ textarea:focus{
   .hero{
 
     scroll-margin-top: 80px;
+  }
+  .hero-image{
+    width: 100%;
   }
   
 .pill{
