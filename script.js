@@ -35,7 +35,7 @@ const drinks = [
     id: 1,
     name: "Classic Milk Tea",
     price: 4.50,
-    image: "assets/classic-milktea.jpg",
+    image: "assets/classic-milktea.webp",
     desc: "Creamy black tea with chewy pearls."
   },
   {
@@ -49,7 +49,7 @@ const drinks = [
     id: 3,
     name: "Brown Sugar Boba",
     price: 5.80,
-    image: "assets/brown-sugar-boba.jpg",
+    image: "assets/brown-sugar-boba.webp",
     desc: "Rich caramelized brown sugar swirl."
   },
   {
@@ -63,28 +63,28 @@ const drinks = [
     id: 5,
     name: "Strawberry Fruit Tea",
     price: 4.90,
-    image: "assets/Strawberry Fruit Tea.jpg",
+    image: "assets/Strawberry Fruit Tea.webp",
     desc: "Refreshing berries with fruity tea."
   },
   {
     id: 6,
     name: "Thai Milk Tea",
     price: 5.00,
-    image: "assets/Thai Milk Tea.jpg",
+    image: "assets/Thai Milk Tea.webp",
     desc: "Bold Thai tea with creamy sweetness."
   },
   {
     id: 7,
     name: "Wintermelon Tea",
     price: 4.70,
-    image: "assets/Wintermelon Tea.jpg",
+    image: "assets/Wintermelon Tea.webp",
     desc: "Light and sweet traditional favorite."
   },
   {
     id: 8,
     name: "Cheese Foam Milk Tea",
     price: 5.90,
-    image: "assets/Cheese Foam Milk Tea.jpg",
+    image: "assets/Cheese Foam Milk Tea.webp",
     desc: "Sweet tea topped with creamy foam."
   }
 ];
