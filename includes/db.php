@@ -2,18 +2,32 @@
 
 require_once __DIR__ . '/../load_env.php';
 
-$conn = new mysqli(
-    getenv('DB_HOST'),
-    getenv('DB_USER'),
-    getenv('DB_PASS'),
-    getenv('DB_NAME')
-);
+$host = getenv('DB_HOST');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
+$name = getenv('DB_NAME');
+
+if (!$host || !$user || !$name) {
+    http_response_code(500);
+    echo json_encode([
+        "success" => false,
+        "message" => "ENV not loaded properly",
+        "debug" => [
+            "host" => $host,
+            "user" => $user,
+            "name" => $name
+        ]
+    ]);
+    exit;
+}
+
+$conn = new mysqli($host, $user, $pass, $name);
 
 if ($conn->connect_error) {
     http_response_code(500);
     echo json_encode([
         "success" => false,
-        "message" => "Database connection failed",
+        "message" => "DB connection failed",
         "error" => $conn->connect_error
     ]);
     exit;
