@@ -1,14 +1,17 @@
 <?php
 
-require_once __DIR__ . '/../load_env.php';
-
 $conn = new mysqli(
-    $_ENV['DB_HOST'],
-    $_ENV['DB_USER'],
-    $_ENV['DB_PASS'],
-    $_ENV['DB_NAME']
+    "localhost",
+    "YOUR_DB_USER",
+    "YOUR_DB_PASSWORD",
+    "YOUR_DB_NAME"
 );
 
 if ($conn->connect_error) {
-    die("Database connection failed");
+    http_response_code(500);
+    echo json_encode([
+        "success" => false,
+        "message" => "Database connection failed"
+    ]);
+    exit;
 }
