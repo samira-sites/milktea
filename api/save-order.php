@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once '../includes/db.php';
+require_once '../includes/config.php';
 
 /* FORCE CHECK DB */
 if (!$conn) {
