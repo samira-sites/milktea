@@ -2,9 +2,9 @@
 
 $conn = new mysqli(
     "localhost",
-    "samiraomar_milktea",
-    "Alhamdulillah88@",
-    "samiraomar_milktea_db"
+    "root",
+    "",
+    "milktea_shop"
 );
 
 if ($conn->connect_error) {
