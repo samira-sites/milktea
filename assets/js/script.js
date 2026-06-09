@@ -425,7 +425,7 @@ function fetchOrder(phone) {
           ${itemsHtml}
           <div class="track-progress">
             <div class="track-progress-bar">${bars}</div>
-            <div class="track-progress-labels"><span>Placed</span><span>Preparing</span><span>Done</span></div>
+            <div class="track-progress-labels"><span>Pending</span><span>Preparing</span><span>Done</span></div>
           </div>
         </div>
       `;
