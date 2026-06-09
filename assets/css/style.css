@@ -1001,12 +1001,12 @@ textarea:focus{
 }
 .track-box input:focus {
   outline: none;
-  border-color: #111827;
+  border-color: var(--primary-dark);
 }
 .track-box button.track-btn {
   width: 100%;
   padding: 12px;
-  background: #111827;
+  background: var(--primary-dark);
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -1015,7 +1015,7 @@ textarea:focus{
   cursor: pointer;
   font-family: inherit;
 }
-.track-box button.track-btn:hover { background: #1f2937; }
+.track-box button.track-btn:hover { background: var(--primary); }
 
 /* Result card */
 #trackResult { margin-top: 1.25rem; }

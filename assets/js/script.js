@@ -376,7 +376,11 @@ function startTracking() {
   const result = document.getElementById('trackResult');
 
   if (!phone) {
-    result.innerHTML = '<p style="color:red">Please enter your phone number.</p>';
+    result.innerHTML = `
+      <div style="text-align:center;">
+        <p style="color:red;">Please enter your phone number.</p>
+      </div>
+    `;
     return;
   }
 
