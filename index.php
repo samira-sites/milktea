@@ -34,6 +34,7 @@
           <li><a class="nav-link" href="#menu">Menu</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
+          <li><a class="nav-link" href="#" onclick="openTrackModal(); return false;">Track Order</a></li>
         </ul>
       </nav>
 
@@ -210,21 +211,23 @@
       <div class="footer-bottom">© <span id="year"></span> BrewBliss. All rights reserved.</div>
     </div>
   </footer>
-<!-- Tracking Modal -->
-<button onclick="openTrackModal()">Track Order</button>
-
+<!-- Track Order Modal -->
 <div id="trackModal" class="track-modal">
   <div class="track-box">
-
     <button class="track-close" onclick="closeTrack()">✕</button>
 
-    <h2>📦 Order Tracking</h2>
+    <div id="trackForm">
+    <div class="track-header">
+      <div class="track-icon">🧋</div>
+      <h2>Track your order</h2>
+      <p>Enter your phone number to check status</p>
+    </div>
 
-    <input type="text" id="trackPhone" placeholder="Enter phone number" />
-    <button onclick="startTracking()">Track Order</button>
-
-    <div id="trackResult" style="margin-top:20px;"></div>
-
+    <label>Phone number</label>
+    <input type="tel" id="trackPhone" placeholder="+63 9XX XXX XXXX" />
+    <button class="track-btn" onclick="startTracking()">Track Order</button>
+</div>
+    <div id="trackResult"></div>
   </div>
 </div>
   <!-- Cart Sidebar -->

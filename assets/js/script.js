@@ -309,10 +309,21 @@ placeOrder?.addEventListener("click", async () => {
 ========================= */
 function closeModal() {
   orderModal?.classList.remove("show");
+
+// Auto-open tracking with their phone
+ const phone = document.getElementById('customerPhone').value.trim();
+ if (phone) {
+   document.getElementById('trackPhone').value = phone;
+   openTrackModal();
+   fetchOrder(phone);
+ }
+
+
   cartData = [];
   updateCart();
 }
 
+ 
 orderOk?.addEventListener("click", closeModal);
 
 document.querySelectorAll("[data-close]").forEach((el) => {
@@ -341,3 +352,87 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 revealEls.forEach((el) => observer.observe(el));
+
+/* =========================
+   TRACKING ORDER
+========================= */
+
+let trackInterval = null;
+
+function openTrackModal() {
+  document.getElementById('trackModal').classList.add('open');
+}
+
+function closeTrack() {
+  document.getElementById('trackModal').classList.remove('open');
+  clearInterval(trackInterval);
+  document.getElementById('trackResult').innerHTML = '';
+  document.getElementById('trackPhone').value = '';
+  document.getElementById('trackForm').style.display = 'block'; // show again
+}
+
+function startTracking() {
+  const phone = document.getElementById('trackPhone').value.trim();
+  const result = document.getElementById('trackResult');
+
+  if (!phone) {
+    result.innerHTML = '<p style="color:red">Please enter your phone number.</p>';
+    return;
+  }
+
+    // Hide the form after clicking track
+    document.getElementById('trackForm').style.display = 'none';
+
+  fetchOrder(phone);
+
+  if (trackInterval) clearInterval(trackInterval);
+  trackInterval = setInterval(() => fetchOrder(phone), 5000);
+}
+
+function fetchOrder(phone) {
+  fetch('api/get-order.php?phone=' + encodeURIComponent(phone))
+    .then(res => res.json())
+    .then(data => {
+      const box = document.getElementById('trackResult');
+      if (!data.success) {
+        box.innerHTML = '<p style="color:#ef4444;font-size:13px;">❌ No order found for that number.</p>';
+        return;
+      }
+
+      const o = data.order;
+      const badgeClass = o.status === 'done' ? 'done' : o.status === 'preparing' ? 'preparing' : 'pending';
+
+      const steps = ['pending','preparing','done'];
+      const currentStep = steps.indexOf(o.status);
+      const bars = steps.map((s, i) => {
+        const cls = i < currentStep ? 'done' : i === currentStep ? 'active' : '';
+        return `<span class="${cls}"></span>`;
+      }).join('');
+
+      let itemsHtml = data.items.map(i =>
+        `<div class="track-item-row"><span>${i.drink_name}</span><span>×${i.quantity}</span></div>`
+      ).join('');
+
+      box.innerHTML = `
+        <div class="track-result-card">
+          <div class="track-result-top">
+            <span class="track-order-num">Order #${o.id}</span>
+            <span class="badge ${badgeClass}">${o.status}</span>
+          </div>
+          <p class="track-name">${o.customer_name}</p>
+          <p class="track-total">Total: $${o.total}</p>
+          <p class="track-items-label">Items</p>
+          ${itemsHtml}
+          <div class="track-progress">
+            <div class="track-progress-bar">${bars}</div>
+            <div class="track-progress-labels"><span>Placed</span><span>Preparing</span><span>Done</span></div>
+          </div>
+        </div>
+      `;
+
+      if (o.status === 'done') clearInterval(trackInterval);
+    })
+    .catch(() => {
+      document.getElementById('trackResult').innerHTML = '<p style="color:#ef4444;font-size:13px;">⚠️ Error fetching order.</p>';
+    });
+}
