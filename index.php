@@ -34,7 +34,7 @@
           <li><a class="nav-link" href="#menu">Menu</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
-          <li><a class="nav-link" href="#" onclick="openTrackModal(); return false;">Track Order</a></li>
+          <li><a class="nav-link nav-track" href="#" onclick="openTrackModal(); return false;">Track Order</a></li>
         </ul>
       </nav>
 

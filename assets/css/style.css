@@ -293,6 +293,10 @@ span{
 .nav-link:hover::after{
   width:100%;
 }
+.nav-track{
+  color: var(--primary);
+  text-shadow: 2px 3px 5px rgba(218, 123, 6, 0.901);
+}
 
 /* CART BUTTON */
 
@@ -459,7 +463,7 @@ span{
 }
 
 .menu-image{
-  height:170px;
+  height:200px;
   position:relative;
   overflow:hidden;
   background:linear-gradient(135deg,#f1ddd0,#c18c77);
