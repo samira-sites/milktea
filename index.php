@@ -275,14 +275,17 @@
           <input type="tel" id="customerPhone" placeholder="Your phone number" required>
         </label>
       
-        <button class="btn btn-primary btn-wide" id="placeOrder" type="button">
-          Place Order
-        </button>
+        <div class="cart-btn">
+
+          <a href="#menu" class="btn btn-ghost" onclick="closeCart()">
+              Add Items
+          </a>
       
-        <p class="cart-footnote">
-          Taxes and shipping calculated at checkout (demo).
-        </p>
+          <button class="btn btn-primary" id="placeOrder" type="button">
+              Place Order
+          </button>
       
+      </div>
       </div>
     </div>
   </aside>
