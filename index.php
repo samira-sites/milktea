@@ -54,7 +54,7 @@
           <p class="hero-subtitle reveal">Freshly brewed milk teas made to brighten your day and warm your heart.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#menu">Order Now</a>
-            <a class="btn btn-ghost" href="#about">Meet BrewBliss</a>
+            <a class="btn btn-ghost" href="#contact">Contact Us</a>
           </div>
         </div>
 
@@ -84,7 +84,7 @@
         <div class="about-copy">
           <h2 class="section-title reveal">A Cozy Corner for Tea Lovers</h2>
           <p class="about-text reveal">
-            BrewBliss is where creamy milk tea meets slow mornings and sweet celebrations.
+            Milktea. meets slow mornings and sweet celebrations.
             We brew with care, swirl flavors with joy, and craft every cup to brighten your day.
           </p>
           <p class="about-text">
